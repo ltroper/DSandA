@@ -12,13 +12,16 @@ const productExceptSelf = function(nums) {
 
     for (let i = nums.length-1; i > 0; i--){
         countR = nums[i]*countR
-        rigth.push(countR)
+        rigth.unshift(countR)
     }
 
 
     for (let i = 0; i < left.length; i++){
-        ans.push(left[i]*rigth[left.length-i-1])
+        ans.push(left[i]*rigth[i])
     }
+
+    console.log(rigth, "right")
+    console.log(left, "left")
 
     return ans
 };
