@@ -1,31 +1,22 @@
-const trap = function (height) {
-    let left = 0
-    let right = 1
+const trap = function (h) {
+    let l = 0
+    let r = h.length - 1
 
     let res = 0
 
-    while (right < height.length) {
-        // console.log(res)
-        // console.log("Left:", left)
-        // console.log("Right", right)
 
-        if (height[right] <= height[right + 1]) {
-            right++
-        }
+    if (h[l] < h[l + 1]) l++
+    if (h[r] < h[r - 1]) r--
 
-        else {
-            let dif = Math.abs(height[right] - height[left])
+    let big = Math.min(h[l], h[r])
+    let dif = Math.abs(h[l] - h[r])
 
-            for (let i = left + 1; i < right; i++) {
-                if (dif - height[i] > 0) res += dif - height[i]
-            }
-            left++
-            right = left + 1
-        }
-
+    for (let i = l+1; i < r; i++){
+        if (h[i] < big) res += Math.abs(big - h[i])
     }
 
     return res
+
 };
 
 
