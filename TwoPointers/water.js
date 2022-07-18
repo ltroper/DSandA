@@ -8,11 +8,13 @@ const trap = function (h) {
     if (h[l] < h[l + 1]) l++
     if (h[r] < h[r - 1]) r--
 
+    if (h[l + 1] > h[r]) l++
+    if (h[r - 1] > h[l]) r--
+
     let big = Math.min(h[l], h[r])
-    let dif = Math.abs(h[l] - h[r])
 
     for (let i = l+1; i < r; i++){
-        if (h[i] < big) res += Math.abs(big - h[i])
+        res += Math.abs(big - h[i])
     }
 
     return res

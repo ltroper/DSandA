@@ -12,4 +12,5 @@ const uniquePaths = function(m, n, memo={}) {
 
 
 
-console.log(uniquePaths(7, 7))
+
+console.log(uniquePaths(70, 7))
